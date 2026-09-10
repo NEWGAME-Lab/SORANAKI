@@ -12,7 +12,7 @@ public class StartTownMoveCheck : MonoBehaviour
     {
         if(SceneMove.Instance != null)
         {
-            SceneMove.Instance.Move("StartTown");
+            SceneMove.Instance.Move("Title");
         }
     }
 }
