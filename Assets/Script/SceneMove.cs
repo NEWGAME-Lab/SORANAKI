@@ -23,6 +23,8 @@ public partial class SceneMove : MonoBehaviour
         }
     }
 
+    private string nextScene;//シーン移動のステイトを管理するため後で状況に合わせて直す
+  
     public void Move(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
