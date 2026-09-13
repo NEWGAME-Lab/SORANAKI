@@ -2,16 +2,22 @@ using UnityEngine;
 
 public class SceneTransitionDoor : MonoBehaviour,IInteract
 {
-    SceneMove sceneMove;
+    [SerializeField] private StageMoveCheck stageMoveCheck;
+    //[SeSceneMove sceneMove;
     private void Awake()
     {
-        sceneMove = GameObject.FindAnyObjectByType<SceneMove>();
+        //sceneMove = GameObject.FindAnyObjectByType<SceneMove>();
+        //Debug.Assert(sceneMove != null, "SceneMove is null");
 
     }
-    void IInteract.Interact()
+    /// <summary>
+    /// Interacterが飛び出す関数
+    /// </summary>
+     void IInteract.Interact()
     {
         Debug.Log("SceneTransitionDoor Interact");
-        sceneMove.Move("Title");//後でチェック側に移す
+
+        stageMoveCheck.MoveToStage();//後でチェック側に移す
 
     }
 }
