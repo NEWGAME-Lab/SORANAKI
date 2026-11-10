@@ -11,6 +11,7 @@ public class JsonLoader : MonoBehaviour
     {
         //仮の音量を読みこむ
         string json = "{\"volumes\":{\"masterVolume\":1.0,\"seVolume\":0.8,\"bgmVolume\":0.5}}";
+        Debug.Log("[JsonLoader]1.Json文字列を準備しました: " + json);
 
         //実際のJsonファイルを読み込む場合
         /*
@@ -29,7 +30,14 @@ public class JsonLoader : MonoBehaviour
         SettingData settingData = jsonStore.Store(json);
 
         //SettingDataReflectでゲーム側に反映する
-        settingDataReflect.ReflectData(settingData);
+        if(settingDataReflect != null)
+        {
+            settingDataReflect.ReflectData(settingData);
+        }
+        else
+        {
+            Debug.LogError("[JsonLoader] エラー: settingDataReflect がアサインされていません！");
+        }
 
     }
 
