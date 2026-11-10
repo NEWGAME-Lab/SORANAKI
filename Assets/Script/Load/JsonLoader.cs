@@ -10,11 +10,11 @@ public class JsonLoader : MonoBehaviour
     public void JsonLoad()
     {
         //仮の音量を読みこむ
-        string json = "{\"seVolume\":0.8}";
+        string json = "{\"volumes\":{\"masterVolume\":1.0,\"seVolume\":0.8,\"bgmVolume\":0.5}}";
 
         //実際のJsonファイルを読み込む場合
         /*
-        string path = Application.persistenDataPath + "/setting.json";
+        string path = Application.persistentDataPath + "/setting.json";
 
         if (!File.Exists(path)){
             Debug.Log("JSONファイルが見つかりませんでした");
