@@ -1,8 +1,10 @@
 using System;
+using Unity.Scripting.LifecycleManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageTownButtonRun : MonoBehaviour
+[AutoStaticsCleanup]
+public partial class StageTownButtonRun : MonoBehaviour
 {
     public static event Action<SEType> OnSEPlayRequested;
 
