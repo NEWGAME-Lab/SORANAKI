@@ -3,27 +3,31 @@ using System.IO;
 
 public class JsonLoader : MonoBehaviour
 {
+    //設定値をゲーム内に反映するクラスの参照
+    //InspectorからSettingDataReflectをアサインする
     [SerializeField]
     private SettingDataReflect settingDataReflect;
 
-
+    ///<summary>
+    /// Jsonデータを読み込み、構造体に変換してゲーム内に反映する処理
+    /// </summary>
+    
     public void JsonLoad()
     {
-        //仮の音量を読みこむ
-        string json = "{\"volumes\":{\"masterVolume\":1.0,\"seVolume\":0.8,\"bgmVolume\":0.5}}";
-        Debug.Log("[JsonLoader]1.Json文字列を準備しました: " + json);
-
         //実際のJsonファイルを読み込む場合
-        /*
-        string path = Application.persistentDataPath + "/setting.json";
+        //保存先のパスを取得する
+        string path = Application.persistentDataPath + "/setting.json"; //persistentDataPathはゲームのセーブデータなどを保存する場所
 
+        //指定した場所にJsonファイルがあるか確認する
         if (!File.Exists(path)){
-            Debug.Log("JSONファイルが見つかりませんでした");
+            Debug.LogError("JSONファイルが見つかりませんでした");
             return;
         }
 
+        //Jsonファイルの内容を文字列として読み込む
         string json = File.ReadAllText(path);
-        */
+        Debug.Log("JSONファイルの読み込みが完了しました。");
+        
 
         //JsonStoreで構造体に変換する
         JsonStore jsonStore = new JsonStore();
@@ -41,7 +45,8 @@ public class JsonLoader : MonoBehaviour
 
     }
 
-    private void Start()
+    //Jsonの読み込み処理を実行する
+    private void Awake()
     {
         JsonLoad();
     }
