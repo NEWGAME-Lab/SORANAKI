@@ -6,7 +6,6 @@ public class Interactor : MonoBehaviour
 {
     // [SerializeField] private DialogueUIController dialogueUIController;
     private bool isPlayerInRange = false;
-    private bool keypush = false;
     private string textdata = "-";
     public event Action<string> talk;
     public event Action onHideDialogue;

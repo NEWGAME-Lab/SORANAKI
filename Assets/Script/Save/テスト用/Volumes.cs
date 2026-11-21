@@ -14,4 +14,9 @@ public struct Volumes
         seVolume = se;
         bgmVolume = bgm;
     }
+
+    //これが俺のprivate回避だオラァ！
+    public float MasterVolume => masterVolume;
+    public float SeVolume     => seVolume;
+    public float BgmVolume    => bgmVolume;
 }
