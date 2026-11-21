@@ -1,37 +1,33 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove
 {
-    public float speed = 5.0f;
+    public float moveSpeed = 5.0f;
 
-    void Update()
+    public PlayerMove(
+         float moveSpeed)
     {
-        float x = 0;
-        float y = 0;
-
-        if (Keyboard.current.wKey.isPressed)
-        {
-            y = 1;
-        }
-
-        if (Keyboard.current.sKey.isPressed)
-        {
-            y = -1;
-        }
-
-        if (Keyboard.current.aKey.isPressed)
-        {
-            x = -1;
-        }
-
-        if (Keyboard.current.dKey.isPressed)
-        {
-            x = 1;
-        }
-
-        Vector3 movement = new Vector3(x, y, 0).normalized;
-
-        transform.position += movement * speed * Time.deltaTime;
+        this.moveSpeed = moveSpeed;
     }
+
+    public Vector3 Right(Vector3 position, float deltaTime)
+    {
+        return position + Vector3.right * moveSpeed * deltaTime;
+    }
+
+    public Vector3 Left(Vector3 position, float deltaTime)
+    {
+        return position + Vector3.left * moveSpeed * deltaTime;
+    }
+
+    public Vector3 Up(Vector3 position, float deltaTime)
+    {
+        return position + Vector3.up * moveSpeed * deltaTime;
+    }
+
+    public Vector3 Down(Vector3 position, float deltaTime)
+    {
+        return position + Vector3.down * moveSpeed * deltaTime;
+    }   
 }
