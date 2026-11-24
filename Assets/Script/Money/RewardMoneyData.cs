@@ -2,12 +2,12 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public struct RewardMoneyData// : IHasId
+public struct RewardMoneyData : IHasId
 {
     [SerializeField] private string enemyId;
     [SerializeField] private int rewardMoney;
 
-    //public string Id => enemyId;
+    public string Id => enemyId;
     public string EnemyId => enemyId;
     public int RewardMoney => rewardMoney;
 

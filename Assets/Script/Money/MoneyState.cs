@@ -8,7 +8,7 @@ public class MoneyState : MonoBehaviour
 
     private void Awake()
     {
-        var states = FindObjectsByType<MoneyState>(FindObjectsSortMode.None);
+        var states = FindObjectsByType<MoneyState>();
         if (states.Length > 1)
         {
             Destroy(gameObject);
