@@ -5,7 +5,6 @@ public class CharacterFactory : MonoBehaviour
     [SerializeField] private Character[] character;
     [SerializeField] private CharacterDatabase CharacterDatabase;
 
-
     void Start()
     {
         SetCharacterStatus();

@@ -17,15 +17,29 @@ public class Character : MonoBehaviour
         CurrentHP = status.hp;
         Debug.Log($"Character Initialized: ID={CharacterID}, Name={CharacterName}, HP={CurrentHP}, Attack={status.attack}, Defense={status.defense}");
     }
-
+    /// <summary>
+    /// 基礎的なダメージを受け取って、自身の状態に併せて計算し直し反映する
+    /// </summary>
+    /// <param name="damage"></param>
     public virtual void TakeDamage(int damage)
     {
         // ダメージ処理
+        int finalDamage = Mathf.Max(0, damage - status.defense);
+        CurrentHP = Mathf.Max(0, CurrentHP - finalDamage);
+        if(CurrentHP <= 0)
+        {
+            Die();
+        }
+
     }
 
+    /// <summary>
+    /// 死亡処理（一旦消えるだけ）
+    /// </summary>
     protected virtual void Die()
     {
         // 死亡処理
+        Destroy(gameObject);
     }
    
 }

@@ -4,17 +4,17 @@ using UnityEngine.InputSystem;
 public class Player : Character
 {
     private PlayerMove playerMove;
+    private PlayerDamageCalculator damageCalculator;
     [SerializeField] private float moveSpeed = 5.0f;
     //public int CharacterID { get; protected set; } = 1;
+
     private void Awake()
     {
         CharacterID = 1;
         playerMove = new PlayerMove(moveSpeed);
+        damageCalculator = new PlayerDamageCalculator();
     }
-    override public void TakeDamage(int damage)
-    {
-        // Playerのダメージ処理
-    }
+    
     private void Update()
     {
         // 毎フレームの処理

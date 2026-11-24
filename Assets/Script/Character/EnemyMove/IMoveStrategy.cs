@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IMoveStrategy
 {
-    void Move();
+    Vector3 Move(Vector3 position, float deltaTime);
 }
