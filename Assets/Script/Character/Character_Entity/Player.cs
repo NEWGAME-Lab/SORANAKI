@@ -14,7 +14,12 @@ public class Player : Character
         playerMove = new PlayerMove(moveSpeed);
         damageCalculator = new PlayerDamageCalculator();
     }
-    
+    public int  DealtDamage(int WeaponDamage)
+    {
+        return damageCalculator.CalculateDamage(status.attack, WeaponDamage);
+    }
+
+
     private void Update()
     {
         // 毎フレームの処理

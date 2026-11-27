@@ -16,12 +16,12 @@ MonoBehaviour:
   - id: 1
     name: player
     status:
-      hp: 1
+      hp: 100
       attack: 100
       defense: 1
   - id: 2
     name: Enemy
     status:
-      hp: 1
+      hp: 100
       attack: 200
-      defense: 1200
+      defense: 100

@@ -18,11 +18,14 @@ public class Character : MonoBehaviour
         Debug.Log($"Character Initialized: ID={CharacterID}, Name={CharacterName}, HP={CurrentHP}, Attack={status.attack}, Defense={status.defense}");
     }
     /// <summary>
-    /// 基礎的なダメージを受け取って、自身の状態に併せて計算し直し反映する
+    /// 基礎的なダメージを受け取って、自身の状態に併せてダメージを計算し直し反映する
     /// </summary>
     /// <param name="damage"></param>
     public virtual void TakeDamage(int damage)
     {
+        Debug.Log($"受け取ったダメージ：{damage}");
+        Debug.Log($"現在のHP：{CurrentHP}");
+        Debug.Log($"防御力：{status.defense}");
         // ダメージ処理
         int finalDamage = Mathf.Max(0, damage - status.defense);
         CurrentHP = Mathf.Max(0, CurrentHP - finalDamage);
