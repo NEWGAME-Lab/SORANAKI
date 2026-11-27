@@ -5,14 +5,15 @@ using UnityEngine;
 public class HitWeapon : MonoBehaviour
 {
     [SerializeField]private Player player;
+    [SerializeField] private int weaponDamage = 50;
     private void OnTriggerEnter2D(Collider2D other)
     {
         Enemy enemy = other.GetComponent<Enemy>();
-        Debug.Log($"命中した敵：{enemy.GetType().Name}");
         if (enemy == null)
         {
             return;
         }
+        Debug.Log($"命中した敵：{enemy.GetType().Name}");
 
         // Playerから与えるダメージを取得
         int damage = player.DealtDamage(1000); // ここで武器のダメージを指定する（例: 10）
